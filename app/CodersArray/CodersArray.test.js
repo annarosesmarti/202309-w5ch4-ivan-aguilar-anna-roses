@@ -1,60 +1,47 @@
 import CodersArray from "./CodersArray";
 
-describe("Given a length method", () => {
-  describe("When it receives 2 elements", () => {
-    test("Then it shoud return 2", () => {
-      const numbers = new CodersArray(3, 8);
+describe("Given the class CodersArray's constructor", () => {
+  describe("When it's called with 2 and 4", () => {
+    test("Then it should return an object with two properties pointing to 2 and 4", () => {
+      const expectedValueA = 2;
+      const expectedValueB = 4;
+
+      const values = new CodersArray(2, 4);
+
+      expect(values[0]).toBe(expectedValueA);
+      expect(values[1]).toBe(expectedValueB);
+    });
+
+    test("Then it should have the length of 2", () => {
       const expectedLength = 2;
 
-      const length = numbers.length();
+      const values = new CodersArray(2, 4);
 
-      expect(length).toBe(expectedLength);
+      expect(values.length).toBe(expectedLength);
     });
   });
+});
 
-  describe("When it receives 10 word", () => {
-    test("Then it should return 10", () => {
-      const words = new CodersArray(
-        "hola",
-        "casa",
-        "puertas",
-        "farola",
-        "pan",
-        "araña",
-        "zumo",
-        "patinete",
-        "bootcamp",
-        "oro",
-      );
-      const expectedLength = 10;
+describe("Given the class CodersArray with a push method", () => {
+  describe("When it's called with the arguments 7 and 29", () => {
+    test("Then it should point to pushed values", () => {
+      const expectedValueA = 7;
+      const expectedValueB = 29;
 
-      const length = words.length();
+      const values = new CodersArray(3, 5, 8);
+      values.push(7, 29);
 
-      expect(length).toBe(expectedLength);
+      expect(values[3]).toBe(expectedValueA);
+      expect(values[4]).toBe(expectedValueB);
     });
-  });
 
-  describe("When it receives 12 elements", () => {
-    test("Then it should return 12", () => {
-      const expressions = new CodersArray(
-        "hola",
-        3,
-        "/",
-        ".",
-        "()",
-        "(Ç",
-        100,
-        "-",
-        "infierno",
-        "funcion suma(a+b)",
-        "rest",
-        20,
-      );
-      const expectedLength = 12;
+    test("Then the returned length should be 5", () => {
+      const expectedLength = 5;
 
-      const length = expressions.length();
+      const values = new CodersArray(3, 5, 8);
+      const valuesLength = values.push(7, 29);
 
-      expect(length).toBe(expectedLength);
+      expect(valuesLength).toBe(expectedLength);
     });
   });
 });

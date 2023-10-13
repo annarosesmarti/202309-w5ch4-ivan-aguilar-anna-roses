@@ -33,4 +33,28 @@ describe("Given a length method", () => {
       expect(length).toBe(expectedLength);
     });
   });
+
+  describe("When it receives 12 elements", () => {
+    test("Then it should return 12", () => {
+      const expressions = new CodersArray(
+        "hola",
+        3,
+        "/",
+        ".",
+        "()",
+        "(Ç",
+        100,
+        "-",
+        "infierno",
+        "funcion suma(a+b)",
+        "rest",
+        20,
+      );
+      const expectedLength = 12;
+
+      const length = expressions.length();
+
+      expect(length).toBe(expectedLength);
+    });
+  });
 });
